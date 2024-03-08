@@ -12,9 +12,8 @@ function App() {
 
     if (token) {
       navigate('/')
-    } else {
-      navigate('/log')
-    }
+    } 
+    
   }, [navigate])
 
   return (

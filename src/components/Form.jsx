@@ -31,16 +31,25 @@ function Form({ title }) {
   }
 
   return (
-    <form>
-      <h3>{title} form</h3>
+    <>
+      <form>
+        <h3>{title} form</h3>
 
-      <input type="text" autoComplete="off" placeholder="e-mail addres" 
-        onChange={event => setEmail(event.target.value)} />
-      <input type="password" autoComplete="off" placeholder="password"
-        onChange={event => setPassword(event.target.value)} />
+        <input type="text" autoComplete="off" placeholder="e-mail addres" 
+          onChange={event => setEmail(event.target.value)} />
+        <input type="password" autoComplete="off" placeholder="password"
+          onChange={event => setPassword(event.target.value)} />
 
-      <button type="button" onClick={handleAction}>{title}</button>
-    </form>
+        <button type="button" onClick={handleAction}>{title}</button>
+      </form>
+
+      {title === "Login"
+        ?
+        <button onClick={() => navigate('/reg')}>go to registration page</button>
+        :
+        <button onClick={() => navigate('/log')}>go to login page</button>
+      }
+    </>
   )
 }
 
