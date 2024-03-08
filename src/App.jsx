@@ -13,9 +13,9 @@ function App() {
     if (token) {
       navigate('/')
     } else {
-      navigate('/reg')
+      navigate('/log')
     }
-  }, [])
+  }, [navigate])
 
   return (
     <>

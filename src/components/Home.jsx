@@ -7,13 +7,11 @@ function Home() {
   useEffect(() => {
     const token = sessionStorage.getItem("token")
 
-    console.log(token)
-
     if (!token) {
       console.log("no token")
-      navigate('/reg')
+      navigate('/log')
     }
-  }, [])
+  }, [navigate])
 
   return (
     <div className="Home">
