@@ -12,16 +12,12 @@ function Form({ title }) {
     const auth = getAuth(app)
 
     if (title === "Login"){
-      console.log("Login: ", email, password)
-
       signInWithEmailAndPassword(auth, email, password)
         .then(res => {
           sessionStorage.setItem("token", res._tokenResponse.refreshToken)
           navigate('/')
         })
     } else if (title === "Registration") {
-      console.log("Registration: ", email, password)
-
       createUserWithEmailAndPassword(auth, email, password)
         .then(res => {
           sessionStorage.setItem("token", res._tokenResponse.refreshToken)
