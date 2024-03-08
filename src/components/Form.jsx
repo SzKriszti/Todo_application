@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { app } from "../firebase"
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
+import { useNavigate } from "react-router-dom"
 
 function Form({ title }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate()
 
   const handleAction = () => {
     const auth = getAuth(app)
@@ -18,6 +20,7 @@ function Form({ title }) {
         .then(res => {
           console.log(res)
           sessionStorage.setItem("token", res._tokenResponse.refreshToken)
+          navigate('/')
         })
     }
   }
