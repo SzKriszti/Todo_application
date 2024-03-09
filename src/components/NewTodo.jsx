@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { addDoc, collection, getDocs } from "firebase/firestore"
+import { addDoc, collection } from "firebase/firestore"
 import { db } from "../firebase"
 
 function NewTodo() {
@@ -11,7 +11,7 @@ function NewTodo() {
     try {
       const todosCollection = collection(db, "todos")
 
-      const docRef = await addDoc(collection(db, "todus"), {
+      const docRef = await addDoc(collection(todosCollection), {
         todo: todo,
       })
       console.log("document written with ID: ", docRef.id)

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { signOut, getAuth } from "firebase/auth"
 import { app } from "../firebase"
 import NewTodo from "./NewTodo"
+import Todos from "./Todos"
 
 
 function Home() {
@@ -30,7 +31,9 @@ function Home() {
     <div className="Home">
         <h3>Home page</h3>
         
-       <NewTodo />
+        <NewTodo />
+
+        <Todos />
 
         <button onClick={handleLogout}>Logout</button>
     </div>
