@@ -11,7 +11,7 @@ function NewTodo() {
     try {
       const todosCollection = collection(db, "todos")
 
-      const docRef = await addDoc(collection(todosCollection), {
+      const docRef = await addDoc (todosCollection, {
         todo: todo,
       })
       console.log("document written with ID: ", docRef.id)

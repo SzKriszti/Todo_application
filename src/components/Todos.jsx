@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { db } from "../firebase"
 
 function Todos() {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(null)
 
   useEffect(() => {
     const todosCollection = collection(db, "todos")
@@ -21,7 +21,12 @@ function Todos() {
 
   return (
     <div className="todos">
-      
+      {todos
+				?
+				todos.map((todoData, index) => <p key={index}>{todoData.todo}</p>)
+				:
+				"loading..."
+			}
     </div>
   )
 }
